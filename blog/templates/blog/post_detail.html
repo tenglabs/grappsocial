@@ -1,0 +1,115 @@
+{% extends "blog/base.html" %}
+{% block content %}
+{% load bootstrap4 %}
+
+
+
+  <div class="card bg-light mb-2" >
+    <div class="card-header">
+      <img class="rounded-circle article-img" src="{{ post.author.profile.imagepro.url }}">
+      
+      <a  class="mr-2 author" href="{% url 'user-posts' post.author.username %}">{{ post.author }} {% if post.author.is_superuser %}
+        <i title='This User is Administrator' class="fas fa-star admin-user"></i> {% endif %}
+        </a>
+
+      
+    </div>
+    <div class="card-body">
+      <h2>{{ post.title }}</h2>
+      <p class="card-text">
+        {{ post.content }}
+        </p> 
+    </div>
+    <div class="card-footer">
+      <small class="text-muted datetime">{{ post.date_posted|date:"F d, Y H:i" }}</small>
+      
+      
+   {% include 'blog/like_section.html' %}
+  </div>
+
+  {% if post.author == user %}
+  <div>
+    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' post.id %}">Update</a>
+    <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' post.id %}">Delete</a>
+  </div>
+{% endif %}
+
+  </div>
+
+
+
+
+
+  
+  
+  
+  {% if user.is_authenticated %}
+ 
+  <form method="POST" class="post-form  cform">
+      {% csrf_token %}
+      {% bootstrap_form form show_label=False placeholder='Write your comment here...' %}
+      
+        
+    
+
+
+      
+      <button  type="submit" class="btn btn-outline-dark">Send</button>
+  </form>
+{% endif %}
+
+
+{% if  user.is_anonymous %}
+<div>
+Log in to leave your comment... <a class="lonk"  href="{% url 'login' %}">Log in</a>
+</div>
+{% endif %}
+<hr class="commentsechr ">
+
+{% for comment in comments %}
+<div class="card text-dark bg-light mb-3 mt-3" >
+  <div class="card-header">
+    <img class="rounded-circle comment-img" src="{{ comment.author.profile.imagepro.url }}">
+    {{ comment.author }}</div>
+  <div class="ml-3 mr-3 mt-3 mb-3">
+    
+    <p class="card-text">{{ comment.text|linebreaks }}</p>
+  </div>
+  <div>
+ <small class="text-muted datecom mb-1 commentf mr-3">{{ comment.created_date }}</small>
+</div>
+   <hr class="commenthr">
+
+
+
+{% empty %}
+    <p>No comments here yet :(</p>
+    
+{% endfor %}
+
+
+{% if comments.has_previous or comments.has_next %}
+<div class="pagination">
+  <span class="step-links">
+      {% if comments.has_previous %}
+      <a class="btn btn-sm btn-outline-dark mb-4" href="?page=1">First</a>
+      <a class="btn btn-sm btn-outline-dark mb-4" href="?page={{ comments.previous_page_number }}">Previous</a>
+      {% endif %}
+
+    
+      {% for num in comments.paginator.page_range %}
+        {% if comments.number == num %}
+          <a class="btn btn-sm btn-dark mb-4" href="?page={{ num }}">{{ num }}</a>
+        {% elif num > comments.number|add:'-3' and num < comments.number|add:'3' %}
+          <a class="btn btn-sm btn-outline-dark mb-4" href="?page={{ num }}">{{ num }}</a>
+        {% endif %}
+      {% endfor %}
+
+      {% if comments.has_next %}
+      <a class="btn btn-sm btn-outline-dark mb-4" href="?page={{ comments.next_page_number }}">Next</a>
+      <a class="btn btn-sm btn-outline-dark mb-4" href="?page={{ comments.paginator.num_pages }}">Last</a>
+      {% endif %}
+  </span>
+</div>
+{% endif %}
+{% endblock content %}

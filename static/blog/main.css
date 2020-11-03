@@ -1,0 +1,300 @@
+body {
+  background: white;
+  color: #333333;
+  margin-top: 5rem;
+  font-family: 'Quicksand', sans-serif;
+
+}
+textarea{
+  border: 2px solid #6f2da875!important;
+  
+  
+  box-shadow: none !important;
+
+}
+
+
+input[type=text]:focus {
+  border: 2px solid #6f2da875!important;
+  
+  
+  box-shadow: none !important;
+}
+textarea:focus{
+  border: 2px solid #6f2da8b7!important;
+  
+  
+  box-shadow: none !important;
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+}
+.grecaptcha-badge { 
+    visibility: hidden;
+}
+.like-button-png{
+  width: 35px;
+  opacity: 0.7;
+}
+.like-button-png-list{
+  width: 35px;
+  opacity: 0.5;
+}
+ul {
+  margin: 0;
+}
+a.fofpg{
+  color: #6f2da8;
+  text-decoration: none
+
+}
+.count{
+  float:left;
+  color: #6f2da8b7 !important;
+  
+}
+.author{
+  font-family: 'Comfortaa', cursive;
+  font-size: 20px;
+  font-weight: bold;
+}
+a.author{
+  color: #6f2da8;
+  text-decoration: none
+}
+a.author:hover{
+  color: rgba(81, 14, 139, 0.918);
+  text-decoration: none
+}
+a.lonk{
+  color: #6f2da8af !important;
+  text-decoration: none
+  
+}
+a.lonk:hover{
+  color: #6f2da8 !important;
+  text-decoration: none
+}
+.bg-grape {
+  background-color: #6f2da8;
+  
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.article-title {
+  color: #444444;
+  
+
+}
+
+a.article-title:hover {
+  color: #6f2da8;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+  
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+.nav-user-img{
+  height: 25px;
+  width: 25px;
+  margin-right: 3px;
+}
+.comment-img {
+  height: 40px;
+  width: 40px;
+  margin-right: 6px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+.comment{
+  float: left;
+  
+  color: #6f2da8a6 ;
+}
+.like-list{
+  float: left;
+  margin-left: 15px;
+  color: #6f2da8a6;
+  
+}
+.like-list-active{
+  float: left;
+  margin-left: 15px;
+  color: #6f2da8a6;
+  text-decoration: none;
+}
+.like-list:hover{
+  color: #6f2da8c9;
+  text-decoration: none;
+  
+}
+.like-like{
+  float: left;
+  
+  color: #6f2da8a6;
+  
+  
+}
+a.like-like:hover{
+  color: #6f2da8;
+  text-decoration: none;
+  
+}
+
+.datetime{
+  float: right;
+  margin-top: 15px;
+  font-family: 'Montserrat', sans-serif;
+
+
+  font-size: 14px;
+}
+
+.card-header{
+  background-color: white !important;
+  border: none ;
+}
+.card{
+  background-color: white !important;
+  border: none ;
+  
+  
+  
+}
+.card-footer{
+  background-color: white ;
+  border: none;
+  border-bottom: 2px solid #6f2da875;
+  border-radius: 0px !important;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  
+}
+
+.card-body{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.grape-list{
+  padding-top: 20px;
+}
+.admin-user{
+  color: goldenrod	;
+}
+
+.logo-graper{
+  width: 35px !important;
+  margin-right: 5px;
+
+}
+
+.btn-outline-dark{
+  border: 1.5px solid #6f2da875 !important;
+  font-weight: 600;
+  color: #6f2da8 !important; 
+}
+.btn-outline-dark:hover{
+  border: 1px solid #6f2da8 !important;
+  background-color: #6f2da8;
+  color: white !important; 
+  
+}
+.btn-outline-dark:active{
+  
+  box-shadow: none !important;
+}
+.btn-dark{
+  border: 1px solid #6f2da8 !important;
+  background-color:#6f2da8 ;
+  font-weight: 600;
+}
+.btn-dark:hover{
+  border: 1px solid #6f2da8 !important;
+  background-color:#6f2da8d3 ;
+  
+}
+.btn-dark:active{
+  box-shadow: none !important;
+  
+}
+.commentf{
+  float: right;
+}
+.commenthr{
+  border: 1px solid #6f2da875;
+  
+}
+.datecom{
+  float: right;
+  
+  font-family: 'Montserrat', sans-serif;
+
+
+  font-size: 14px;
+}
+
+.commentsechr {
+  border: 1px solid #6f2da875;
+  margin-left:125px;
+  margin-right:125px;
+  margin-top: 75px;
+  margin-bottom: 75px;
+
+}

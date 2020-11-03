@@ -1,0 +1,79 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    {% for post in posts %}
+
+        
+      <div class="class grape-list">
+        <div class="card bg-light mb-2" >
+          <div class="card-header">
+            <img class="rounded-circle article-img" src="{{ post.author.profile.imagepro.url }}">
+            
+            <a  class="mr-2 author" href="{% url 'user-posts' post.author.username %}">{{ post.author }} {% if post.author.is_superuser %}
+              <i title='This User is Administrator' class="fas fa-star admin-user"></i> {% endif %}
+              </a>
+              <!--{% if post.author.moderator == True %}
+              <i class="fas fa-star moder-user">  moder</i>
+              {% endif %} -->
+            
+          </div>
+          <div class="card-body">
+            <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+            <p class="card-text">
+              {% if post.content|length >= 300 %}
+              {{ post.content | truncatechars:300 }}  <a href="{% url 'post-detail' post.id %}"> Read {% else %} {{ post.content }} {% endif %} </a></p> 
+          </div>
+          <div class="card-footer">
+            <small class="text-muted datetime">{{ post.date_posted|date:"F d, Y H:i" }}</small>
+
+
+            <p class="count" > {{ post.comments.count }} <a class=" like-like" "> <img class="like-button-png" src="/media/comment.png" alt=""> </a> </p>
+    
+            {% if user.is_authenticated %}
+            
+            
+            
+            
+            
+            <p class="count"> {{ post.likes.count }} <a class=" like-list-active" > <img class="like-button-png-list" src="/media/likebutt.png" alt=""> </a></p>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            {% endif %}
+            {% if  user.is_anonymous %}
+            
+            <p class="count" > {{ post.likes.count }} <a class=" like-list-active" > <img class="like-button-png" src="/media/likebutt.png" alt=""> </a></p>
+            
+            {% endif %}
+        </div>
+
+        </div>
+      </div>
+    {% endfor %}
+    {% if is_paginated %}
+
+      {% if page_obj.has_previous %}
+        <a class="btn btn-outline-dark mb-4" href="?page=1">First</a>
+        <a class="btn btn-outline-dark mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+      {% endif %}
+
+      {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+          <a class="btn btn-dark mb-4" href="?page={{ num }}">{{ num }}</a>
+        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+          <a class="btn btn-outline-dark mb-4" href="?page={{ num }}">{{ num }}</a>
+        {% endif %}
+      {% endfor %}
+
+      {% if page_obj.has_next %}
+        <a class="btn btn-outline-dark mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+        <a class="btn btn-outline-dark mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+      {% endif %}
+
+    {% endif %}
+{% endblock content %}

@@ -1,0 +1,25 @@
+<p class="count" > {{ post.comments.count }} <a class=" like-like" "> <img class="like-button-png" src="/media/comment.png" alt=""> </a> </p>
+    
+{% if user.is_authenticated %}
+
+
+
+
+{% if liked %}
+<p class="count"> {{ post.likes.count }} <a class=" like-list-active" href="{{ post.get_like_url }}"> <img class="like-button-png" src="/media/likebutt.png" alt=""> </a></p>
+
+
+{% else %}
+<p class="count">  {{ post.likes.count }}<a class="like-list-active" href="{{ post.get_like_url }}"><img class="like-button-png" src="/media/likebuttwht.png" alt=""></a></p>
+
+
+{% endif %}
+
+
+
+{% endif %}
+{% if  user.is_anonymous %}
+
+<p class="count" > {{ post.likes.count }} <a class=" like-list-active" > <img class="like-button-png" src="/media/likebutt.png" alt=""> </a></p>
+
+{% endif %}
